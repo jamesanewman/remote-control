@@ -1,0 +1,58 @@
+<div class="container">
+
+  <div class="btn-group justified nav-pills bg-info"  ui-state='activeTab' ui-default='1'>
+    <a class="btn" ui-set="{'activeTab': 1}"><i class="fa fa-search"></i> Search</a>
+    <a class="btn" ui-set="{'activeTab': 2}">Favourites</a>
+    <a class="btn" ui-set="{'activeTab': 3}">Easynews</a>
+    <a class="btn" ui-set="{'activeTab': 4}">Remote</a>
+  </div>
+
+  <div ui-if="activeTab == 1" ng-controller="DiscoveryCtrl as discovery" class="discovery">
+
+    <div class="discovery searchbox">
+      
+        <input style="width:90%" type="text" id="search" placeholder="Search ..." ng-model="discovery.searchText">
+        <label for="search" ng-click="discovery.search()"><i class="fa fa-search"></i></label>
+
+    </div>
+
+    <div class="matches" style="height:400px; overflow-y:scroll">
+
+      <div ng-repeat="series in discovery.matches" class="series" ng-click="discovery.view( series )">
+        <hr />
+        <p class="image" ng-if="series.banner"><img ng-src="{{series.banner}}" /></p>
+        <h3>{{series.name}}</h3>
+        <p ng-bind="series.description"></p>
+
+<!--         <div>
+          <button class="btn btn-default btn-block">View</button>
+          <button class="btn btn-block" ng-click="discovery.bookmark( series )">Add to favourites</button>
+      </div>
+ -->
+    </div>
+
+  </div>
+
+  <div ui-if="activeTab == 2">
+    <h3 class="page-header">Favourites</h3>
+
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="search"><i class="fa fa-search"></i> Search</label>
+        <input style="width:80%" type="text" class="form-control" id="search" placeholder="Search ...">
+      </div>
+    </form>
+
+  </div>
+
+  <div ui-if="activeTab == 3">
+    <h3 class="page-header">Easynews</h3>
+    <!-- ... -->
+  </div>
+
+  <div ui-if="activeTab == 4">
+    <h3 class="page-header">Remote</h3>
+    <!-- ... -->
+  </div>
+
+</div>
