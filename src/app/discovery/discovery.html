@@ -1,0 +1,18 @@
+<div class="discovery searchbox">
+  
+    <input style="width:90%" type="text" id="search" placeholder="Search ..." ng-model="Discovery.searchText">
+    <label for="search" ng-click="Discovery.search()"><i class="fa fa-search"></i></label>
+
+</div>
+
+<div class="matches" style="height:400px; overflow-y:scroll">
+
+  <div ng-repeat="series in Discovery.matches" class="series" ng-click="Discovery.view( series.id )">
+    <hr />
+    <p class="image" ng-if="series.banner"><img ng-src="{{series.banner}}" /></p>
+    <h3>{{series.name}}</h3>
+    <p ng-bind="series.description"></p>
+
+</div>
+
+</div>

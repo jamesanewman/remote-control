@@ -5,32 +5,41 @@ angular.module('remote')
 
 })
 
-.controller('DiscoveryCtrl', function ($scope,$log,TVData) {
 
-  var DC = this;
 
-  DC.searchText = "buffy";
-  DC.search = function(){
+// .controller('DiscoveryCtrl', function ($scope,$log,TVData ) {
 
-  	$log.debug("DC / looking -> " , DC.searchText );
+//   var DC = this;
 
-    TVData.search( DC.searchText ).then( function( series ){
+//   DC.searchText = "buffy";
+//   DC.search = function(){
 
-      $log.debug("DC / New Series -> " , series);
-      DC.matches = series;
+//   	$log.debug("DC / looking -> " , DC.searchText );
 
-    });
+//     TVData.search( DC.searchText ).then( function( series ){
 
-  }
+//       $log.debug("DC / New Series -> " , series );
+//       DC.matches = series;
 
-  DC.view = function( series ){
-  	$log.debug( "View series -> " , series );
-  }
+//     });
 
-  $log.debug("DC / Data -> ", TVData );
+//   }
 
-  if( 1 ) {
-  	DC.search();
-  }
+//   DC.view = function( seriesId ){
+//   	$log.debug( "View series -> " , seriesId );
+//     $log.debug("--------------------------------");
 
-});
+//     TVData.getSeries( seriesId ).then( function( data ){
+
+//       $log.debug("Series data -> " , data );
+
+//     })
+//   }
+
+//   $log.debug("DC / Data -> ", TVData );
+
+//   if( 1 ) {
+//   	DC.search();
+//   }
+
+// });

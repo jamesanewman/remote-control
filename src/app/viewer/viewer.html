@@ -1,0 +1,27 @@
+<div style="width:100%; border:1px solid red">
+	<h1 style="margin-left:auto;margin-right:auto">{{ Viewer.series.name }}</h1>
+</div>
+<img ng-src="{{ Viewer.series.banner }}">
+<div class="btn-group justified nav-pills">
+	<a class="btn">Add To Favourites</a>
+</div>
+<p>{{Viewer.series.description}}</p>
+
+
+<div ng-repeat="season in Viewer.seasons">
+	<div ng-click="Viewer.toggle(season)">
+		<h2>Season {{season}}</h2>
+	</div>
+
+	<div id="season_{{ season }}" ng-repeat="episode in Viewer.series.season[ season ]" ng-if="episode.season == Viewer.currentOpen">
+
+	<div>
+		<div>
+			<h3>{{episode.name}}</h3>
+		</div>
+		<div>
+			<p>{{episode.description}}</p>
+		</div>
+	</div>
+
+</div>
