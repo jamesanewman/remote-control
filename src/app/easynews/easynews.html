@@ -1,4 +1,24 @@
-<p>Easynews controller</p>
-<p>Name: {{ Easynews.name }}</p>
-<p>Seasons: {{Easynews.season }}</p>
-<p>Episode: {{Easynews.episode }}</p>
+<div class="discovery searchbox">
+  
+    <input style="width:90%" type="text" id="search" placeholder="Search ..." ng-model="Easynews.searchText">
+    <label for="search" ng-click="Easynews.search( Easynews.searchText )"><i class="fa fa-search"></i></label>
+
+</div>
+
+<hr>
+<h1 ng-if="Easynews.name">{{ Easynews.name }}</h1>
+
+<div ng-if="Easynews.matches.length">
+	<div ng-repeat="match in Easynews.matches">
+		<hr />
+		<img ng-src="{{match.thumb}}" />
+		<h2 ng-if="match.virus">Virus</h2>
+		<h2>{{ ::match.runtime }} - {{::match["post date"] }}</h2>
+		<p ng-bind-html="match.subject"></p>
+	         
+	    <div class="btn-group justified nav-pills">
+	        <a class="btn" ng-click="Easynews.play( match )">Play</a>
+	    </div>
+
+	</div>
+</div>

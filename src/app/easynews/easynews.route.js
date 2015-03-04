@@ -4,7 +4,7 @@ angular.module( 'remote.easynews.route',[ 'remote.easynews.controller'] )
 
 	$stateProvider
 		.state('home.easynews', {
-			url: '/easynews/:name/:season/:episode',
+			url: '/easynews/:name/:season/:episode?title',
 					
             views: {
                 main: {

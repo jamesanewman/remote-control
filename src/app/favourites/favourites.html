@@ -9,7 +9,9 @@
         </div>
 
         <div class="latest" ng-repeat="episode in series.lastEpisodes" style="border:2px solid grey; margin: 1em;">
-            <h2>{{ episode.name }}</h2>
+            <h2>{{ episode.name }} - {{ episode.aired }}</h2>
+            <p>{{ episode.description }}</p>
+            
             <div class="btn-group justified nav-pills">
                 <a class="btn" ui-sref="home.easynews( { episode: episode.number, season: episode.season, name: series.name } )">Easynews</a>
             </div>

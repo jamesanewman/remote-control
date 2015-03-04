@@ -12,7 +12,9 @@ angular.module('remote',
 
 	'remote.data.tvrage','remote.bookmark',
 	'remote.utility.xml-query',
-	'remote.series-service'
+	'remote.series-service',
+	'remote.xbmc-service',
+	'remote.easynews-service'
 
 ])
 
