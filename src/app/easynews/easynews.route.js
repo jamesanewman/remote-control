@@ -4,12 +4,21 @@ angular.module( 'remote.easynews.route',[ 'remote.easynews.controller'] )
 
 	$stateProvider
 		.state('home.easynews', {
-			url: '/easynews',
-			templateUrl: 'app/easynews/easynews.html',
-			controller: 'EasynewsCtrl',
-			controllerAs: 'Easynews'					
-			});	
-	
+			url: '/easynews/:name/:season/:episode',
+					
+            views: {
+                main: {
+                    templateUrl: 'app/easynews/easynews.html',
+                    controller: 'EasynewsCtrl',
+                    controllerAs: 'Easynews'
+                },
+                header: {
+                    templateUrl: 'app/easynews/header.html'
+                }
+
+            }
+        }); 
+
 })
 
 .run( function(){

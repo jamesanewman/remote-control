@@ -1,6 +1,6 @@
 angular.module( 'remote.viewer.controller',[] )
 
-.controller( 'ViewerCtrl', function($log,$stateParams,TVData,$anchorScroll,$location){
+.controller( 'ViewerCtrl', function($log,$stateParams,TVData,$anchorScroll,$location,BookmarkService,$state){
 
 	var VC = this;
 
@@ -22,6 +22,12 @@ angular.module( 'remote.viewer.controller',[] )
 	}
 
 	if( $stateParams.seriesid ) loadSeries( $stateParams.seriesid );
+
+	VC.addToFavourites = function(){
+		$log.debug("Adding to favourites...");
+		BookmarkService.save( VC.series );
+		$state.go( "home.favourites" );
+	}
 
 	VC.toggle = function( seasonNumber ){
 		if( VC.currentOpen == seasonNumber ) VC.currentOpen = undefined;

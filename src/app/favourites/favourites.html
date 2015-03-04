@@ -1,1 +1,22 @@
 <p>Favourites controller</p>
+
+<div ng-repeat="series in Favourites.favourites">
+    <div class="series" style="border: 3px solid grey; padding: 0.5em">
+        <div class="details">
+            <img ng-src="{{series.banner}}">
+            <h1>{{series.name}}</h1>
+
+        </div>
+
+        <div class="latest" ng-repeat="episode in series.lastEpisodes" style="border:2px solid grey; margin: 1em;">
+            <h2>{{ episode.name }}</h2>
+            <div class="btn-group justified nav-pills">
+                <a class="btn" ui-sref="home.easynews( { episode: episode.number, season: episode.season, name: series.name } )">Easynews</a>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+

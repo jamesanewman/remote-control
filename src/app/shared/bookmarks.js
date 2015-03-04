@@ -1,8 +1,8 @@
 angular.module( 'remote.bookmark' , [] )
 
-.service( 'BookmarkService' , ['$log' , 'SeriesBookmark' , function($log,SeriesBookmark){
+.service( 'BookmarkService' , ['$log' , function($log){
 
-	var debug = true,
+	var debug = false,
 		bookmarkIdentifier ="series-bookmarks",
 		bookmarks = [];
 
@@ -21,7 +21,7 @@ angular.module( 'remote.bookmark' , [] )
 
 	function _all(){
 		_init();
-		return localStorage.getItem( bookmarkIdentifier );
+		return JSON.parse( localStorage.getItem( bookmarkIdentifier ) );
 	}
 
 	function _clear(){
@@ -30,19 +30,17 @@ angular.module( 'remote.bookmark' , [] )
 	}
 
 	function _init(){
-		if( debug || !localStorage.hasItem( bookmarkIdentifier ) ){
+		if( debug || !localStorage.hasOwnProperty( bookmarkIdentifier ) ){
 			bookmarks = ( debug ) ? __debugData() : [];
 			_save();
 		}		
 	}
 	function _save(){
-		var data = JSON.stringify( bookmarks );
+		//var data = JSON.stringify( bookmarks );
+		var data = angular.toJson( bookmarks );
 		localStorage.setItem( bookmarkIdentifier , data );
 	}
 
-	this.create = function( values ){
-		return new SeriesBookmark( values );
-	}
 
 	this.all = function(){ return _all(); };
 	this.get = function(id){ return _.find( bookmarks , { id : id } ) };

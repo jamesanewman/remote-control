@@ -5,10 +5,20 @@ angular.module( 'remote.favourites.route',[ 'remote.favourites.controller'] )
 	$stateProvider
 		.state('home.favourites', {
 			url: '/favourites',
-			templateUrl: 'app/favourites/favourites.html',
-			controller: 'FavouritesCtrl',
-			controllerAs: 'Favourites'					
-			});	
+				
+            views: {
+                main: {
+            templateUrl: 'app/favourites/favourites.html',
+            controller: 'FavouritesCtrl',
+            controllerAs: 'Favourites'                  },
+                header: {
+                    templateUrl: 'app/favourites/header.html',
+                    // controller: 'ViewerCtrl',
+                    // controllerAs: 'Viewer'                   
+                }
+
+            }
+		});	
 
 	
 })

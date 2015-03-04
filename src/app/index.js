@@ -11,7 +11,8 @@ angular.module('remote',
 	'remote.viewer.route',
 
 	'remote.data.tvrage','remote.bookmark',
-	'remote.utility.xml-query'
+	'remote.utility.xml-query',
+	'remote.series-service'
 
 ])
 

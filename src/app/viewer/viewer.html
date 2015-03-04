@@ -3,9 +3,11 @@
 </div>
 <img ng-src="{{ Viewer.series.banner }}">
 <div class="btn-group justified nav-pills">
-	<a class="btn">Add To Favourites</a>
+	<a class="btn" ng-click="Viewer.addToFavourites()">Add To Favourites</a>
 </div>
 <p>{{Viewer.series.description}}</p>
+
+
 
 
 <div ng-repeat="season in Viewer.seasons">
