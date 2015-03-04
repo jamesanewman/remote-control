@@ -1,6 +1,6 @@
 angular.module( 'remote.xbmc-service' , [] )
 
-.service( 'XBMCService', function( $log ){
+.service( 'XBMCService', function( $log,$http ){
 
 	var XBMC = this,
 		command = {
