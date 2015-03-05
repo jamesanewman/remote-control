@@ -1,15 +1,16 @@
-<p>Favourites controller</p>
+<div ng-if="Favourites.favourites.length==0">
+    <p>No favourites defined</p>
+</div>
 
-<div ng-repeat="series in Favourites.favourites">
-    <div class="series" style="border: 3px solid grey; padding: 0.5em">
-        <div class="details">
+<div ng-repeat="series in Favourites.favourites" class="display-list">
+    <div class="series" xstyle="border: 3px solid grey; padding: 0.5em">
+        <div class="display-list-header text-center" >
             <img ng-src="{{series.banner}}">
             <h1>{{series.name}}</h1>
-
         </div>
 
-        <div class="latest" ng-repeat="episode in series.lastEpisodes" style="border:2px solid grey; margin: 1em;">
-            <h2>{{ episode.name }} - {{ episode.aired }}</h2>
+        <div class="display-list-item episode" ng-repeat="episode in series.lastEpisodes">
+            <h2>{{ episode.name }} <small class="text-right">Aired: {{ episode.aired }}</small></h2>
             <p>{{ episode.description }}</p>
             
             <div class="btn-group justified nav-pills">

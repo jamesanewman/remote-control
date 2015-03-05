@@ -46,7 +46,7 @@ angular.module( 'remote.easynews.controller',[] )
 
     }
     
-    if( $stateParams.name !== undefined ){
+    if( $stateParams.name !== undefined && $stateParams.name !== "" ){
         var searchText = [
                 EN.name,
                 "s" + ( "0" + EN.season).slice( -2 ),

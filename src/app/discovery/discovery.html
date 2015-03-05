@@ -1,16 +1,15 @@
-<div class="discovery searchbox">
+<div class="discovery searchbox panel">
   
-    <input style="width:90%" type="text" id="search" placeholder="Search ..." ng-model="Discovery.searchText">
+    <input class="form-control" type="text" id="search" placeholder="Search ..." ng-model="Discovery.searchText">
     <label for="search" ng-click="Discovery.search()"><i class="fa fa-search"></i></label>
 
 </div>
 
-<div class="matches" style="height:400px; overflow-y:scroll">
+<div class="discovery matches display-list">
 
-  <div ng-repeat="series in Discovery.matches" class="series" ng-click="Discovery.view( series.id )">
-    <hr />
+  <div ng-repeat="series in Discovery.matches" class="series display-list-item" ng-click="Discovery.view( series.id )">
+    <h3 class="text-center">{{series.name}}</h3>
     <p class="image" ng-if="series.banner"><img ng-src="{{series.banner}}" /></p>
-    <h3>{{series.name}}</h3>
     <p ng-bind="series.description"></p>
 
 </div>

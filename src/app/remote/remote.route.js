@@ -6,10 +6,20 @@ angular.module( 'remote.remote.route',[ 'remote.remote.controller'] )
 	$stateProvider
 		.state('home.remote', {
 			url: '/remote',
-			templateUrl: 'app/remote/remote.html',
-			controller: 'RemoteCtrl',
-			controllerAs: 'Remote'					
-			});	
+            views: {
+                main: {
+                    templateUrl: 'app/remote/remote.html',
+                    controller: 'RemoteCtrl',
+                    controllerAs: 'Remote'  
+                    },
+                header: {
+                    templateUrl: 'app/favourites/header.html',
+                    // controller: 'ViewerCtrl',
+                    // controllerAs: 'Viewer'                   
+                }
+
+            }
+		});	
 
 	
 })

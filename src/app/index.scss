@@ -1,2 +1,37 @@
+body {
+    
+}
+
+
+.searchbox {
+    margin-top: 5px;
+
+    input.form-control {
+        display: inline;
+        width: 90%
+    }
+}
+
+
+.display-list {
+    .display-list-header {
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    .display-list-item {
+        
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 4px;
+        margin: 2px;
+        margin-bottom: 4px;
+
+        small {
+            float: right;
+        }
+    }
+
+}
 // injector
 // endinjector
