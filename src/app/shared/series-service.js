@@ -20,13 +20,36 @@ angular.module( 'remote.series-service' , [] )
             seasons.push( v );    
         });
 
+
+        function _removeNotAired( episode ){
+            var episodeDate = episode.aired.split('-'),
+                today = new Date(),
+                year = parseInt( episodeDate[ 0 ] ),
+                month = parseInt( episodeDate[ 1 ] ),
+                day = parseInt( episodeDate[ 2 ] )
+
+            //$log.debug("Episode air date = " , episodeDate );
+
+            if( year > today.getFullYear() ) return false;
+            if( year == today.getFullYear() ){
+                //$log.debug("Check month " , month , " : " , today.getMonth()+1)
+                if( month > today.getMonth()+1 ) return false;
+                if( month == today.getMonth()+1 ){
+                    if( day > today.getDate() ) return false;
+                }
+            }
+
+            return true;
+        }
+
         // Store in reverse order
         episodes = _.sortBy( _.flattenDeep( seasons ) , function( episode ){
             var sortIdx = 100000 - Number( (episode.season * 10) + episode.number );
-            $log.debug("Sort episode " , episode.season, ":" , episode.number , " -> " , sortIdx);
+            var today = new Date();
             return sortIdx;
         });
         
+        episodes = _.filter( episodes , _removeNotAired );
         $log.debug("Episodes -> " , episodes)
     }
 

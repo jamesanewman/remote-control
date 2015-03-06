@@ -2,6 +2,31 @@ body {
     
 }
 
+.remote-display .row {
+    
+    &.remote-header {
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+    &.remote-footer {
+        margin-top: 1em;
+    }
+}
+.xbmc-nav-button {
+    line-height: 5em;
+    /* border: 1px solid rgba(100,100,100,0.1); */
+    background-color: rgba(100,100,100,0.1);
+    border-radius: 4px;
+
+    span {
+        display: inline-block;
+        vertical-align: middle; 
+
+        i.fa {
+            vertical-align: middle; 
+        }
+    }
+}
 
 .searchbox {
     margin-top: 5px;

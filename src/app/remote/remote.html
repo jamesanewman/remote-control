@@ -1,2 +1,29 @@
-<p>Remote controller</p>
-<p>TO BE DONE</p>
+<div class="remote-display">
+
+
+    <div class="row text-center xbmc-nav-button remote-header">
+        <span ng-click="Remote.back()">Back</span>
+    </div>
+
+    <div class="row text-center xbmc-nav-button">
+        <span ng-click="Remote.up()"><i class="fa fa-chevron-up fa-4x"></i></span>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6 text-center xbmc-nav-button">
+            <span ng-click="Remote.left()"><i class="fa fa-chevron-left fa-4x"></i></span>
+        </div>
+        <div class="col-xs-6 text-center xbmc-nav-button">
+            <span ng-click="Remote.right()"><i class="fa fa-chevron-right fa-4x"></i></span>
+        </div>
+    </div>
+
+    <div class="row text-center xbmc-nav-button">
+        <span ng-click="Remote.down()"><i class="fa fa-chevron-down fa-4x"></i></span>
+    </div>
+
+    <div class="row text-center xbmc-nav-button remote-footer">
+        <span ng-click="Remote.select()">Select</span>
+    </div>
+
+</div>
