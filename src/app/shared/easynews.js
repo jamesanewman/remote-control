@@ -1,6 +1,6 @@
 angular.module( "remote.easynews-service", [] )
 
-.service( 'EasynewsSearch' , [ '$log','$http', function($log,$http){
+.service( 'EasynewsSearch' , function($log,$http,Storage){
 
 	var EN = this,
 		fields = {
@@ -39,8 +39,9 @@ angular.module( "remote.easynews-service", [] )
 		    "20": "Expire Date",
 		    "FullThumb": "Full Thumb"
 		},
-		username = "jnewman",
-		password = "amelia08",
+		settings = (new Storage("settings")).get(),
+		username = settings.username,
+		password = settings.password,
 		urlPrefix = "members.easynews.com/2.0/search/solr-search/?";
 
 	function makeParams( params ){
@@ -129,7 +130,7 @@ angular.module( "remote.easynews-service", [] )
 
 		return url;
 	}
-}]);
+});
 
 	// var EasynewsSearch = (function() {
 	// 	'use strict';

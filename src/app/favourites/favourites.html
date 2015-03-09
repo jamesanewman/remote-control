@@ -4,21 +4,58 @@
 
 <div ng-repeat="series in Favourites.favourites" class="display-list">
     <div class="series" xstyle="border: 3px solid grey; padding: 0.5em">
-        <div class="display-list-header text-center" >
+
+        <div class="row">
             <img ng-src="{{series.banner}}">
-            <h1>{{series.name}}</h1>
         </div>
 
-        <div class="display-list-item episode" ng-repeat="episode in series.lastEpisodes">
-            <h2>{{ episode.name }} <small class="text-right">Aired: {{ episode.aired }}</small></h2>
-            <p>{{ episode.description }}</p>
-            
-            <div class="btn-group justified nav-pills">
-                <a class="btn" ui-sref="home.easynews( { episode: episode.number, season: episode.season, name: series.name } )">Easynews</a>
+        <div class="display-list-header row">
+
+            <div class="text-center col-xs-7">
+                <h1>{{series.name}}</h1>
             </div>
 
+            <div class="btn-group nav-pills col-xs-5">
+                <a class="btn" ng-click="Favourites.remove( series.id )">
+                    Remove {{series.id}}
+                </a>
+                <a class="btn" ng-click="Favourites.toggleOpen( $index )">
+                    <span ng-show="Favourites.open==$index">Hide</span>
+                    <span ng-show="Favourites.open!=$index">Show</span>
+                    Episodes
+                </a>
+            </div>
+
+            <hr />
+
         </div>
 
+        <show-episode episode="series.series.lastEpisode" ng-if="Favourites.open != $index">
+            <div class="btn-group justified nav-pills">
+                <a  class="btn" 
+                    ui-sref="home.easynews( { 
+                        episode: series.series.lastEpisode.number, 
+                        season: series.series.lastEpisode.season, 
+                        name: series.series.lastEpisode.name } )">Easynews
+                </a>
+            </div>
+        </show-episode>
+
+
+        <div ng-show="Favourites.open == $index">
+            <div    class="display-list-item episode" 
+                    ng-repeat="episode in series.series.lastEpisodes">
+
+                <show-episode episode="episode">
+                    <div class="btn-group justified nav-pills">
+                        <a  class="btn" 
+                            ui-sref="home.easynews( { episode: episode.number, season: episode.season, name: series.name } )">Easynews
+                        </a>
+        
+                    </div>
+                </show-episode>
+            </div>
+        </div>
 
     </div>
 </div>

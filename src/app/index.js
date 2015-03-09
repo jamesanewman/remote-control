@@ -8,7 +8,10 @@ angular.module('remote',
 	'remote.easynews.route',
 	'remote.favourites.route',
 	'remote.remote.route',
+	'remote.settings.route',
 	'remote.viewer.route',
+
+	'remote.directive.episode',
 
 	'remote.data.tvrage','remote.bookmark',
 	'remote.utility.xml-query',

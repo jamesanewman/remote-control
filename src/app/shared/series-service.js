@@ -22,6 +22,7 @@ angular.module( 'remote.series-service' , [] )
 
 
         function _removeNotAired( episode ){
+            if( episode.aired == undefined || episode.aired == "" ) return false;
             var episodeDate = episode.aired.split('-'),
                 today = new Date(),
                 year = parseInt( episodeDate[ 0 ] ),

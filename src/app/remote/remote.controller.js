@@ -12,5 +12,9 @@ angular.module( 'remote.remote.controller',[] )
     Remote.back     = _.partial( XBMCService.input , 'back');
     Remote.info     = _.partial( XBMCService.input , 'info' );
     Remote.context  = _.partial( XBMCService.input , 'context' );
-
+    Remote.sendText = function(){
+    	if( Remote.text && Remote.text !== "" ){
+    		XBMCService.sendText( Remote.text );
+    	}
+    }
 })

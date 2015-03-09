@@ -17,6 +17,8 @@ angular.module( 'remote.viewer.controller',[] )
 			});
 			VC.seasonCount = VC.seasons.length;
 			VC.currentOpen = _.first(VC.seasons);
+
+
 		});
 
 	}
@@ -25,7 +27,10 @@ angular.module( 'remote.viewer.controller',[] )
 
 	VC.addToFavourites = function(){
 		$log.debug("Adding to favourites...");
-		BookmarkService.save( VC.series );
+		BookmarkService.save( {
+			id: VC.series.id,
+			name: VC.series.name,
+		} );
 		$state.go( "home.favourites" );
 	}
 

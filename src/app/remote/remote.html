@@ -1,5 +1,11 @@
 <div class="remote-display">
 
+    <div class="remote searchbox panel">
+      
+        <input class="form-control" type="text" id="search" placeholder="Send Text ..." ng-model="Remote.text">
+        <label for="search" ng-click="Remote.sendText()"><i class="fa fa-share-square-o "></i></label>
+
+    </div>
 
     <div class="row text-center xbmc-nav-button remote-header">
         <span ng-click="Remote.back()">Back</span>
@@ -24,6 +30,10 @@
 
     <div class="row text-center xbmc-nav-button remote-footer">
         <span ng-click="Remote.select()">Select</span>
+    </div>
+
+    <div class="row text-center xbmc-nav-button">
+        <span ng-click="Remote.info()">Info</span>
     </div>
 
 </div>

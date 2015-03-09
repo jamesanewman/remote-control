@@ -8,7 +8,8 @@ angular.module( 'remote.data.tvrage' , [] )
 		seriesMap = {
 			'banner' : 'banner', 
 			'fanart' : 'fanart',
-			'seriesid' : 'id',
+			'id': 'id',
+			'SeriesID' : 'seriesid',
 			'SeriesName': 'name',
 			'FirstAired': 'aired',
 			'Overview': 'description'
@@ -61,7 +62,7 @@ angular.module( 'remote.data.tvrage' , [] )
 				value = XQ.getText( field );
 
 			if( _.includes( episodeFields, name ) )	episodeData[ episodeMap[name] ] = value;
-			$log.debug( XQ.getName( field ) , " -> " , XQ.getText( field ));
+			// $log.debug( XQ.getName( field ) , " -> " , XQ.getText( field ));
 
 		})
 
@@ -90,6 +91,7 @@ angular.module( 'remote.data.tvrage' , [] )
 		var series = XQ.find( dom , 'Series' )[ 0 ],
 			episodeList = XQ.find( dom, 'Episode' );
 
+		$log.debug("Series Data input -> " , series );
 		series = extractSeriesData( series );
 		series.season = {};
 
@@ -103,7 +105,7 @@ angular.module( 'remote.data.tvrage' , [] )
 
 			series.season[ data.season ].push( data );
 
-			$log.debug("Data -> " , data );
+			// $log.debug("Episode Data -> " , data );
 
 		});
 

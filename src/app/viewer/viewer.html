@@ -15,20 +15,14 @@
 		<h2>Season {{season}}</h2>
 	</div>
 
-	<div id="season_{{ season }}" ng-repeat="episode in Viewer.series.season[ season ]" ng-if="episode.season == Viewer.currentOpen">
+	<div id="season_{{ season }}" ng-repeat="episode in Viewer.series.season[ season ]" ng-if="episode.season == Viewer.currentOpen" class="display-list">
 
-	<div>
-		<div>
-			<h3>{{ episode.name }} - {{ episode.aired }}</h3>
-		</div>
-		<div>
-			<p>{{episode.description}}</p>
-		</div>
+	<show-episode episode="episode">
 
         <div class="btn-group justified nav-pills">
             <a class="btn" ui-sref="home.easynews( { episode: episode.number, season: episode.season, name: Viewer.series.name } )">Easynews</a>
         </div>
 
-	</div>
+    </show-episode>
 
 </div>

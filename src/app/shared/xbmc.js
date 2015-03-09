@@ -1,9 +1,10 @@
 angular.module( 'remote.xbmc-service' , [] )
 
-.service( 'XBMCService', function( $log,$http ){
+.service( 'XBMCService', function( $log,$http,Storage ){
 	//http://kodi.wiki/view/JSON-RPC_API/v6
 	var XBMC = this,
-		url = 'http://192.168.1.125/',
+		settings = (new Storage("settings")).get();
+		url = 'http://' + settings.ip + '/',
 		command = {id: 1, jsonrpc: "2.0" };
 
 
@@ -16,6 +17,12 @@ angular.module( 'remote.xbmc-service' , [] )
 	function sendRequest( data ){
 		$log.debug("Sending " , data , " to " , url + 'jsonrpc');
 		return $http.post( url + 'jsonrpc' , data );
+	}
+
+	XBMC.sendText = function( text ){
+		var data = cmd();
+		data.params = {	method: "Player.SendText", item: {	text: text, done: true } };
+		return sendRequest( data );
 	}
 
 	XBMC.input = function( what ){

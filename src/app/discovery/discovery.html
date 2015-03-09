@@ -1,6 +1,6 @@
 <div class="discovery searchbox panel">
   
-    <input class="form-control" type="text" id="search" placeholder="Search ..." ng-model="Discovery.searchText">
+    <input class="form-control" type="text" id="search" placeholder="Search ..." ng-model="Discovery.searchText" ng-keyup="Discovery.checkKey($event)" autofocus>
     <label for="search" ng-click="Discovery.search()"><i class="fa fa-search"></i></label>
 
 </div>

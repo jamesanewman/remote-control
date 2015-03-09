@@ -1,0 +1,31 @@
+<div class="settings">
+
+    <h1><i class="fa fa-heart"> Tanya</i></h1>
+
+    <div class="setting-panel">
+
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input class="form-control" type="text" id="username" ng-model="Settings.settings.username">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input class="form-control" type="text" id="password" ng-model="Settings.settings.password">
+        </div>
+        
+        <div class="form-group">
+            <label for="ip">IP Address</label>
+            <input class="form-control" type="text" id="ip" ng-model="Settings.settings.ip">
+        </div>
+
+    </div>
+
+    <hr class="separator" />
+
+    <div class="btn-group justified nav-pills bg-info">
+        <a class="btn"><i class="fa fa-floppy-o" ng-click="Settings.save()"> Save</i></a>
+    </div>
+
+
+</div>
