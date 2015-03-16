@@ -36,4 +36,19 @@
         <span ng-click="Remote.info()">Info</span>
     </div>
 
+
+    <div>
+
+        <div ng-repeat="queuedItem in Remote.queue" class="row">
+            <div class="col-xs-2 text-center xbmc-nav-button">
+                <span ng-click="Remote.playItem( queuedItem )"><i class="fa fa-play"></i></span>
+            </div>
+
+            <div class="col-xs-10 text-center xbmc-nav-button">
+                <span>{{ queuedItem.searchText }}</span>
+            </div>
+
+        </div>
+
+    </div>
 </div>

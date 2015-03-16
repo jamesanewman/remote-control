@@ -1,6 +1,6 @@
 angular.module( 'remote.easynews.controller',[] )
 
-.controller( 'EasynewsCtrl', function($log,$stateParams,EasynewsSearch,XBMCService){
+.controller( 'EasynewsCtrl', function($log,$stateParams,EasynewsSearch,XBMCService,Storage){
 
     var EN = this,
         results;
@@ -12,6 +12,24 @@ angular.module( 'remote.easynews.controller',[] )
     EN.title = $stateParams.title;
     EN.searchText = '';
 
+    EN.queue = function( video ){
+
+        var queue = new Storage( "queue" ),
+            queuedItems = queue.get(),
+            link = EasynewsSearch.buildDownload( video , EN.info ),
+            queueItem = {
+                link: link,
+                searchText: EN.searchText
+            };
+
+        if( queuedItems == undefined ) queuedItems = [];
+        queuedItems.push( queueItem );
+        queue.set( queuedItems );
+
+        $log.debug("Play -> " , queuedItems );
+        $log.debug("Link -> " , link );
+
+    }
     /**
      *
      * Check how easy news handles finding multi word ... searches

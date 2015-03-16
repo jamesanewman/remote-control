@@ -1,6 +1,6 @@
 angular.module( 'remote.remote.controller',[] )
 
-.controller( 'RemoteCtrl', function($log,XBMCService){
+.controller( 'RemoteCtrl', function($log,XBMCService,Storage){
 
     var Remote = this;
 
@@ -12,9 +12,26 @@ angular.module( 'remote.remote.controller',[] )
     Remote.back     = _.partial( XBMCService.input , 'back');
     Remote.info     = _.partial( XBMCService.input , 'info' );
     Remote.context  = _.partial( XBMCService.input , 'context' );
+
     Remote.sendText = function(){
     	if( Remote.text && Remote.text !== "" ){
     		XBMCService.sendText( Remote.text );
     	}
     }
+
+    Remote.playItem = function( queuedItem ){
+
+        XBMCService.sendToPlayer( queuedItem.link )
+            .then( function( request ){
+                console.log("XBMCResponse -> " , request );
+            });
+    }
+
+    function loadQueue(){
+        var queue = new Storage( "queue" );
+        Remote.queue = queue.get();
+        $log.debug("Queue is " , Remote.queue );
+    }
+
+    loadQueue();
 })
