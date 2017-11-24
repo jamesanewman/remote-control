@@ -69,7 +69,7 @@ angular.module( "remote.easynews-service", [] )
 			var o2 = {};
 			_.forIn( download , function( value,field ){
 				var fn = resultFields[ field ] ? resultFields[ field ] : field;
-				o2[ fn.toLowerCase() ] = value; 
+				o2[ fn.toLowerCase() ] = value;
 			})
 			o2.thumb = "http://th.easynews.com/thumbnails-";
 			o2.thumb += o2["0"].slice(0,3) + '/';
@@ -102,12 +102,12 @@ angular.module( "remote.easynews-service", [] )
 		return $http.get( url )
 			.then( extractData )
 			.then( parseData );
-	
+
 	}
 
 	EN.buildDownload = function( download,info ){
 
-		//file: "http://jnewman:amelia08@members.easynews.com/
+
 		// dl/auto/80/e690496391475ef1e3c37c74897f25ac0e0a198e70241.avi/Haven%20S03E08.avi"
 
 		$log.debug("Download -> " , download );
@@ -151,17 +151,17 @@ angular.module( "remote.easynews-service", [] )
 
 	// 			if( fieldname === "fty" ) fieldname += "[]"
 	// 			if( easynews[ field ] ){
-					
+
 	// 				console.log("Field " , fieldname , " -> " , easynews[ field ]);
 	// 				params += fieldname + "=" + encodeURI( easynews[ field ] ) + "&"
 
-	// 			} 
+	// 			}
 	// 		})
 
 	// 		return params;
 
 	// 	}
-	
+
 	// 	function EasynewsSearch( searchText ) {
 	// 		// enforces new
 	// 		if (!(this instanceof EasynewsSearch)) {
@@ -199,7 +199,7 @@ angular.module( "remote.easynews-service", [] )
 	// 	}
 
 	// 	//http://forum.kodi.tv/showthread.php?tid=208993&highlight=stream+link
-	
+
 	// 	EasynewsSearch.prototype.set = function( name,value ){
 	// 		if( this[ name ] ){
 	// 			this[name] = value;
@@ -228,9 +228,9 @@ angular.module( "remote.easynews-service", [] )
 
 	// 		return $http.get( searchString );
 	// 	};
-	
+
 	// 	return EasynewsSearch;
-	
+
 	// }());
 
 	// return EasynewsSearch;
